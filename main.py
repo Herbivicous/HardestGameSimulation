@@ -8,7 +8,7 @@ from src.model import Pattern
 from src.simulation.strategies import UserInput, Random, NaiveAI
 from src.simulation import run_simulation
 
-def main(args):
+def simu(args):
 
 	patterns = list(Pattern.generate_all_patterns(args.length))
 
@@ -24,11 +24,11 @@ def main(args):
 	return {p: s/args.trials for p, s in sorted(scores.items(), key=lambda e:e[1])}
 
 if __name__ == '__main__':
-	
-	parser = ArgumentParser()
-	parser.add_argument(dest='length', type=int)
-	parser.add_argument(dest='trials', type=int)
 
-	result = main(parser.parse_args())
+	parser = ArgumentParser()
+	parser.add_argument('length', type=int)
+	parser.add_argument('trials', type=int)
+
+	result = simu(parser.parse_args())
 
 	print('\n'.join(f'{p}:{s}' for p, s in result.items()))
