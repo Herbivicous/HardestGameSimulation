@@ -9,7 +9,7 @@ class StrategyChoice(Enum):
 	lower = 1
 	equal = 2
 
-class GameStrategy:
+class GameStrategy(Protocol):
 
 	def get_choice(self, card:Card) -> StrategyChoice:
 		...
