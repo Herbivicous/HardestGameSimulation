@@ -1,7 +1,7 @@
 
 from ..game import Deck, Game
 
-def run_simulation(runner, runs, base_deck, maps):
+def run_simulation(runner, runs: int, base_deck: Deck, maps):
 
 	scores = {p: 0 for p in maps}
 
@@ -15,7 +15,7 @@ def run_simulation(runner, runs, base_deck, maps):
 
 			pattern_map.fill_checkpoints(deck)
 
-			autoroute = Game(pattern_map, deck)
+			autoroute = Game(pattern_map)
 
 			scores[pattern] += runner.play(autoroute, deck)
 

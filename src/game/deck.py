@@ -1,5 +1,4 @@
 
-from typing import Optional
 from random import shuffle
 
 from ..model import Card, VALUE, COLOR

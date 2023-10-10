@@ -1,13 +1,12 @@
 
 from ..model import Card
-from . import Deck, Map
+from . import Map
 
 class Game:
 
-	def __init__(self, game_map:Map, deck:Deck):
+	def __init__(self, game_map:Map):
 
 		self.game_map = game_map
-		self.deck = deck
 
 		self.position = 0
 
