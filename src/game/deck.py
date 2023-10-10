@@ -39,5 +39,5 @@ class DeckIterator:
 			self.index += 1
 			return self.cards[self.index - 1]
 
-		except IndexError:
-			raise StopIteration
+		except IndexError as error:
+			raise StopIteration from error
