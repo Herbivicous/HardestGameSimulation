@@ -1,9 +1,11 @@
 
+import collections
+
 from ..game import Deck, Game
 
 def run_simulation(runner, runs: int, base_deck: Deck, maps):
 
-	scores = {p: 0 for p in maps}
+	scores = collections.Counter[str]()
 
 	for _ in range(runs):
 
