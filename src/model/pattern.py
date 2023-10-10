@@ -9,12 +9,12 @@ class Pattern:
 		self.pattern = pattern
 
 	@classmethod
-	def generate_all_patterns(cls, length) -> Iterator['Pattern']:
-		yield from (cls(p) for p in product((0, 1), repeat=length))
+	def generate_all_patterns_of_length(cls, length:int) -> Iterator['Pattern']:
+		return (cls(p) for p in product((0, 1), repeat=length))
 
 	@classmethod
-	def generate_all_patterns_with_prefix(cls, prefix, length) -> Iterator['Pattern']:
-		yield from (cls(prefix + p) for p in product((0, 1), repeat=length))
+	def generate_all_patterns_of_length_with_prefix(cls, prefix:tuple[int], length:int) -> Iterator['Pattern']:
+		return (cls(prefix + p) for p in product((0, 1), repeat=length))
 
 	def __iter__(self):
 		return iter(self.pattern)

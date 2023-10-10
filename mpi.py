@@ -23,7 +23,7 @@ nb_of_runs = int(sys.argv[2])
 base = int(math.log2(size))
 
 prefix = tuple(c != '0' for c in format(rank, f'0{base}b'))
-patterns = list(Pattern.generate_all_patterns_with_prefix(prefix, map_length - base))
+patterns = list(Pattern.generate_all_patterns_of_length_with_prefix(prefix, map_length - base))
 
 maps = {p: TwoWaysMap.from_pattern(p) for p in patterns}
 scores = {p: 0 for p in patterns}

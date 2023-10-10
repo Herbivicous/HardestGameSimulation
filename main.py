@@ -10,7 +10,7 @@ from src.simulation import run_simulation
 
 def simu(args):
 
-	patterns = list(Pattern.generate_all_patterns(args.length))
+	patterns = list(Pattern.generate_all_patterns_of_length(args.length))
 
 	maps = {p: TwoWaysMap.from_pattern(p) for p in patterns}
 	scores = {p: 0 for p in patterns}
