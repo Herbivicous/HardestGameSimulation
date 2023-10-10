@@ -2,7 +2,7 @@
 from typing import List
 
 from ..model import Checkpoint, Pattern, Card
-from . import Deck
+from .deck import DeckIterator
 
 class TwoWaysMap:
 
@@ -33,9 +33,9 @@ class TwoWaysMap:
 
 		return cls(road, last_score)
 
-	def fill_checkpoints(self, deck:Deck):
+	def fill_checkpoints(self, deck:DeckIterator):
 		for i in range(len(self.checkpoints)//2):
-			self.update_checkpoint(i, deck.draw_card())
+			self.update_checkpoint(i, next(deck))
 
 	def score(self, index:int) -> int:
 		return self.checkpoints[index].score

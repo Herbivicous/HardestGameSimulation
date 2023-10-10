@@ -1,14 +1,13 @@
 
-from typing import List, Optional
+from typing import Optional
 from random import shuffle
 
 from ..model import Card, VALUE, COLOR
 
 class Deck:
 
-	def __init__(self, cards:List[Card]):
+	def __init__(self, cards:list[Card]):
 		self.cards = cards
-		self.index = 0
 
 	@classmethod
 	def new_52_cards_deck(cls):
@@ -20,18 +19,25 @@ class Deck:
 			]
 		)
 
-	@classmethod
-	def copy(cls, deck:'Deck') -> 'Deck':
-		return cls(deck.cards)
-
 	def shuffle(self):
 		shuffle(self.cards)
 		return self
 
-	def draw_card(self) -> Optional[Card]:
+	def __iter__(self):
+		return DeckIterator(self.cards)
+
+
+
+class DeckIterator:
+
+	def __init__(self, cards: list[Card]):
+		self.cards = cards
+		self.index = 0
+
+	def __next__(self) -> Card:
 		try:
 			self.index += 1
 			return self.cards[self.index - 1]
 
 		except IndexError:
-			return None
+			raise StopIteration
