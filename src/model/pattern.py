@@ -1,6 +1,5 @@
 
 from typing import Iterator
-from collections import UserList
 from itertools import product
 
 class Pattern:
