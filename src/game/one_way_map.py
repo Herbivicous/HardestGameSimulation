@@ -1,19 +1,17 @@
 
-from typing import List
-
 from ..model import Checkpoint, Pattern, Card
 from .deck import DeckIterator
 
 class OneWayMap:
 
-	def __init__(self, checkpoints:List[Checkpoint], last_score:int):
+	def __init__(self, checkpoints:list[Checkpoint], last_score:int):
 		self.checkpoints = checkpoints
 		self.last_score = last_score
 
 	@classmethod
 	def from_pattern(cls, pattern:Pattern):
 
-		res, score = [], 0
+		res, score = list[Checkpoint](), 0
 
 		for case in pattern:
 
