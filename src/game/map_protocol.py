@@ -1,8 +1,7 @@
 
-from typing import Protocol
+from typing import Protocol, Iterator
 
 from ..model import Pattern, Card
-from .deck import DeckIterator
 
 class Map(Protocol):
 
@@ -14,7 +13,7 @@ class Map(Protocol):
 	def from_pattern(cls, pattern:Pattern):
 		...
 
-	def fill_checkpoints(self, deck:DeckIterator):
+	def fill_checkpoints(self, deck: Iterator[Card]):
 		...
 
 	def score(self, index:int) -> int:

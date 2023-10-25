@@ -23,20 +23,4 @@ class Deck:
 		return self
 
 	def __iter__(self):
-		return DeckIterator(self.cards)
-
-
-
-class DeckIterator:
-
-	def __init__(self, cards: list[Card]):
-		self.cards = cards
-		self.index = 0
-
-	def __next__(self) -> Card:
-		try:
-			self.index += 1
-			return self.cards[self.index - 1]
-
-		except IndexError as error:
-			raise StopIteration from error
+		return iter(self.cards)

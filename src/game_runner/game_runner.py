@@ -1,5 +1,8 @@
 
-from ..game import Game, DeckIterator
+from typing import Iterator
+
+from ..game import Game
+from ..model import Card
 from . import GameStrategy, StrategyChoice
 
 class GameRunner:
@@ -7,7 +10,7 @@ class GameRunner:
 	def __init__(self, strategy:GameStrategy):
 		self.strategy = strategy
 
-	def play(self, game:Game, deck:DeckIterator) -> int:
+	def play(self, game:Game, deck: Iterator[Card]) -> int:
 
 		score = 0
 

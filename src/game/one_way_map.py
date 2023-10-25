@@ -1,6 +1,7 @@
 
+from typing import Iterator
+
 from ..model import Checkpoint, Pattern, Card
-from .deck import DeckIterator
 
 class OneWayMap:
 
@@ -24,7 +25,7 @@ class OneWayMap:
 
 		return cls(res, score)
 
-	def fill_checkpoints(self, deck:DeckIterator):
+	def fill_checkpoints(self, deck: Iterator[Card]):
 		for checkpoint in self.checkpoints:
 			checkpoint.card = next(deck)
 
