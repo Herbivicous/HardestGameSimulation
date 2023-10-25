@@ -1,19 +1,19 @@
 
-from typing import Iterator
+from typing import Iterator, Literal
 from itertools import product
 
 class Pattern:
 
-	def __init__(self, pattern):
+	def __init__(self, pattern: tuple[int, ...]):
 		self.pattern = pattern
 
 	@classmethod
 	def generate_all_patterns_of_length(cls, length:int) -> Iterator['Pattern']:
-		return (cls(p) for p in product((0, 1), repeat=length))
+		return (cls(p) for p in product((0, 1), repeat=length))  # type: ignore[arg-type]
 
 	@classmethod
-	def generate_all_patterns_of_length_with_prefix(cls, prefix:tuple[int], length:int) -> Iterator['Pattern']:
-		return (cls(prefix + p) for p in product((0, 1), repeat=length))
+	def generate_all_patterns_of_length_with_prefix(cls, prefix:tuple[int, ...], length:int) -> Iterator['Pattern']:
+		return (cls(prefix + p) for p in product((0, 1), repeat=length))  # type: ignore[arg-type]
 
 	def __iter__(self):
 		return iter(self.pattern)
